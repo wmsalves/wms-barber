@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -12,9 +11,9 @@ model User {
   id        String    @id @default(uuid())
   email     String
   name      String
+  bookings  Booking[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  bookings  Booking[]
 }
 
 model Barbershop {
@@ -46,7 +45,7 @@ model Booking {
   user      User              @relation(fields: [userId], references: [id])
   serviceId String
   service   BarbershopService @relation(fields: [serviceId], references: [id])
-  date      DateTime          @db.Date
+  date      DateTime
   createdAt DateTime          @default(now())
   updatedAt DateTime          @updatedAt
 }
