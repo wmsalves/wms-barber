@@ -25,8 +25,6 @@ const SidebarSheet = () => {
 
   const handleLogoutClick = () => signOut()
 
-  console.log(data?.user)
-
   return (
     <SheetContent className="overflow-y-auto">
       <SheetHeader>
